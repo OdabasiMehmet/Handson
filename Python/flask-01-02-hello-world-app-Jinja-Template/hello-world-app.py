@@ -13,9 +13,9 @@ def second():
 def third():
     return "This is the subpage of third page"
 
-@app.route("/success/<int:score>") #This was not in the task I added it.Ente 127.0.0.1:5000/success/90 to the address line (or any number)
-def success (score):
-    return "The person has passsed and the mark is "+ str(score)
+@app.route("/success/<string:memo>") #This was not in the task I added it.Ente 127.0.0.1:5000/success/90 to the address line (or any number)
+def success (memo):
+    return "The person has passsed and the mark is "+ str(5*(memo))
 
 @app.route("/fail/<int:score>")#This was not in the task I added it.Ente 127.0.0.1:5000/fail/25 to the address line
 def fail (score):
