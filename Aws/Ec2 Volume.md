@@ -43,3 +43,32 @@ sudo mkfs -t ext4 /dev/xvdf
 cd /mnt/mp1
 sudo touch hello.txt
 ls
+## Enlarge the new volume in AWS console and modify from terminal
+
+21. Go to the console and modify the additional volume by enlarging capacity from 5GB to 6GB .
+22. Check if the attached volume is showing the new capacity
+    lsblk  --> will show updated volume
+    df -h  --> will show old volume  
+23. First, we need to resize the file system on the new volume to cover all available space.
+    sudo resize2fs /dev/xvdf # This command will copy the format of existing 5GB file system to enlarged 1GB
+24. df -h --> Now it will show updated volume
+25. Now check back to see if the data still is there
+    ls /mnt/mp1/
+    You will see hello.txt which we created earlier
+
+## Rebooting Instance
+
+26. If you reboot the instance mounting point path will be gone  
+    sudo reboot 
+27.  When you run lsblk you will see that new volume is still attached, but not mounted
+     lsblk
+28. Check if the attached volume is "already formatted" or not and has data on it.
+    sudo file -s /dev/xvdf # This command checks for formatting
+29. Mount the new volume to the mounting point path again 
+    Mounting point previously created is still there but it is cleared now, so we will mount again
+    sudo mount /dev/xvdf /mnt/mp1/
+30. Now run df-h and you will see it is mounted again
+    df -h
+31. Check and see that the data is still there
+    ls  /mnt/mp1/
+    You will see hello.txt which we created earlier.
