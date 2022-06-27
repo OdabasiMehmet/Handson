@@ -70,7 +70,7 @@ while the healthcheck interval is set to 10 seconds and timeout set to 5 seconds
 
 ![targetcomplete](targetcompleted.jpg)
 
-14. `Create a launcg template.`Enter launch and choose ec2-launchtemplate
+14. `Create a launch template.`Enter launch and choose ec2-launchtemplate
 
 ![launchtemplate](launch.jpg)
 
